@@ -27,13 +27,18 @@ class CreateTable implements ApplicationRunner {
     @Autowired
     private UserService userService;
 
+    /**
+     * 使用插件的例子
+     */
     @Override
     public void run(ApplicationArguments args) throws Exception {
+
+        // 初始化表
         jdbcTemplate.execute("""
-                CREATE TABLE users(
-                  name VARCHAR(50) NOT NULL PRIMARY KEY,
-                  pass VARCHAR(64) NOT NULL
-                )""");
+            CREATE TABLE users(
+              name VARCHAR(50) NOT NULL PRIMARY KEY,
+              pass VARCHAR(64) NOT NULL
+            )""");
         log.info("table users created.");
 
         // 尝试两次插入记录，第二次会因为插件检查到用户名已存在，而拒绝执行并打出相应日志
