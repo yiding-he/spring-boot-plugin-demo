@@ -94,10 +94,11 @@ public class PluginManager implements AutoCloseable {
     }
 
     private static PluginClassLoader createClassLoader(String pluginDir, Class<?> pluginClass) {
-        log.info("Creating class loader for path {}", pluginDir);
         try {
+            var pluginDirPath = Path.of(pluginDir).toAbsolutePath();
+            log.info("Creating class loader for path {}", pluginDirPath);
             List<Path> dirOrJarFiles;
-            try (var list = Files.list(Path.of(pluginDir))) {
+            try (var list = Files.list(pluginDirPath)) {
                 dirOrJarFiles = list
                     .filter(VALID_PLUGIN_PATH)
                     .collect(Collectors.toList());

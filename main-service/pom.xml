@@ -23,6 +23,7 @@
             <version>${project.parent.version}</version>
         </dependency>
 
+        <!-- 示例内容实现的是一个数据库操作 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
@@ -30,10 +31,6 @@
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-dbcp2</artifactId>
         </dependency>
 
     </dependencies>
